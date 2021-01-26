@@ -23,7 +23,7 @@ module.exports.webhooks = async (event, context) => {
       signature:
         event.headers["X-Hub-Signature-256"] ||
         event.headers["x-hub-signature-256"],
-      payload: event.body,
+      payload: JSON.parse(event.body),
     });
 
     return {
